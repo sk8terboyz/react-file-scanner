@@ -6,9 +6,8 @@ const LandingPage = () => {
         <div className="main">
             <Container>
                 <Row>
-                    <Col>First</Col>
-                    <Col>Second</Col>
-                    <Col>Third</Col>
+                    <Col><button className='btn btn-outline-dark'><a href="/fileSearch">Search File</a></button></Col>
+                    <Col><h3>Second</h3></Col>
                 </Row>    
             </Container>            
         </div>

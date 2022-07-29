@@ -1,0 +1,7 @@
+
+.fileDataContainer {
+    border: 3px dotted white;
+    /* height: 600px; */
+    height: 60vh;
+    overflow-y: scroll;
+}

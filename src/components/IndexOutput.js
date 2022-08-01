@@ -1,46 +1,47 @@
 import './IndexOutput.css'
-import { Accordion } from 'react-bootstrap'
+import { Accordion, Badge } from 'react-bootstrap'
 
 const IndexOutput = ({ indexData, fileData, searchWords }) => {
+    
+    const wordCount = (word) => {
+        let count = 0;
+        indexData.map(index => {
+            if(word === fileData[index]) {
+                count++;
+            }
+            return count;
+        })
+        return count;
+    }
 
     return (
         <div>
             <div>
                 <h5>Index Data Output</h5>
-                {/* <p>Similarly, this needs to be broken up either by searched words or scrollable section so they don't take up too much space</p>
-                <p>If I did break it up by words, I would probably make use of an accordion that only opens one at a time and closes all others.</p> */}
             </div>
             <Accordion>
-                <Accordion.Item eventKey="0">
-                    <Accordion.Header>header</Accordion.Header>
-                    <Accordion.Body>
-                        <ul>
-                            {indexData.map(index => {
-                                searchWords.map(word => {
-                                    if(word === fileData[index]) {
-                                        // move index value under accordion when word is found
-                                    }
-                                })
-                                return (<li>{fileData[index]} {index}</li>);
-                            })}
-                        </ul>
-                    </Accordion.Body>
-                </Accordion.Item>
+                {
+                    searchWords.map((word, i) => {
+                        return(
+                            <Accordion.Item eventKey={i}>
+                                <Accordion.Header>{word} <Badge bg="info" className='wordBadge'>{wordCount(word)}</Badge> </Accordion.Header>
+                                <Accordion.Body className='accordionBody'>
+                                    <ul>
+                                        {
+                                        indexData.map(index => {
+                                            if(word === fileData[index]) {
+                                                return (<li>Word #{index+1}</li>)
+                                            } else {
+                                                return null;
+                                            }
+                                        })}
+                                    </ul>
+                                </Accordion.Body>
+                            </Accordion.Item>
+                        )
+                    }) 
+                }
             </Accordion>
-           
-            {/* <div>
-                <ul>
-                    {indexData.map(index => {
-                        searchWords.map(word => {
-                            if(word === fileData[index]) {
-                                // move index value under accordion when word is found
-                            }
-                        })
-                        return (<li>{fileData[index]} {index}</li>);
-                    })}
-                </ul>
-            </div> */}
-            
         </div>
     )
 }

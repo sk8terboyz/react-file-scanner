@@ -1,0 +1,9 @@
+
+.accordionBody {
+    max-height: 50vh;
+    overflow-y: scroll;
+}
+
+.wordBadge {
+    margin-left: 2%;
+}

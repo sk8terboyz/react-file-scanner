@@ -12,7 +12,7 @@ const Footer = () => {
         >
             <Container>
                 <Row>
-                    <Col className="text-center py-3">Copyright &copy; File Searcher</Col>
+                    <Col className="text-center py-3">Copyright &copy; File Scanner</Col>
                 </Row>
             </Container>
         </footer>

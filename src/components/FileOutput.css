@@ -1,7 +1,9 @@
 
 .fileDataContainer {
-    border: 3px dotted white;
+    border: 3px dotted rgba(204, 204, 204, 0.671);
+    border-width: thick;
     /* height: 600px; */
     height: 60vh;
     overflow-y: scroll;
+    margin: 5px;
 }
